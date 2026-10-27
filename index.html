@@ -1,14 +1,408 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Binuk's Website</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Binuk's Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html {
+            min-height: 100%;
+            background: linear-gradient(135deg, #070b14, #0b1220, #101b30);
+
+
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: transparent;
+            color: #e2e8f0;
+            font family: Arial, sans-serif;
+            text-align:center;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            text-align: left;
+            list-style: none;
+            padding: 0;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #38bdf8;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        p {
+            max-width: 600px;
+            margin: 20px auto;
+            line-height: 1.7;
+        }
+
+        li {
+            background-color: #1e293b;
+            padding: 12px;
+            margin: 10px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            min-width: 100px;
+        }
+
+        li {
+            transition: 0.3s;
+        }
+
+        li:hover {
+            transform: translateY(-4px);
+            border-color: #38bdf8;
+        }
+
+    .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 60px 10px;
+    min-height: 500px;
+    text-align: left;
+   }
+
+    .hero h1 {
+        font-size: 64px;
+        margin-bottom: 20px;
+        letter-spacing: -1.5px;
+        text-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+    }
+
+    .hero p {
+        font-size: 20px;
+        color: #a8b8d0;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.8;
+    }
+
+    .hero-button {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 14px 24px;
+    background-color: #22d3ee;
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    }
+
+    .hero-button:hover {
+    background-color: #7dd3fc;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(34, 211, 238, 0.3);
+    transition: 0.3s;
+   }
+
+   .about {
+    background-color: #0d1525;
+    max-width: 700px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #263449;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+   }
+
+   .about:hover {
+    transform: translateY(-6px);
+    border-color: #38bdf8;
+    box-shadow: 0 8px 30px rgba(56, 189, 248, 0.15);
+   }
+
+   .skills {
+    background-color: #0d1525;
+    max-width: 700px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #263449;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .skills:hover {
+    transform: translateY(-6px);
+    border-color: #38bdf8;
+    box-shadow: 0 8px 30px rgba(56, 189, 248, 0.15);
+  }
+
+  .contact {
+    background-color: #0d1525;
+    max-width: 700px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 12px 25px;
+    border-radius: 16px;
+    border: 1px solid #263449;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .contact:hover {
+    transform: translateY(-6px);
+    border-color: #38bdf8;
+    box-shadow: 0 8px 30px rgba(56, 189, 248, 0.15);
+}
+
+.contact .hero-button {
+    margin-top: 0px;
+    position: static;
+}
+
+.contact h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.about h2,
+.skills h2 {
+    color: #38bdf8;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    color: #38bdf8;
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 50px;
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 12px 28px;
+    min-width: 480px;
+    min-height: 60px;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid #263449;
+    border-radius: 50px;
+    transform: translateX(40px);
+}
+
+.logo {
+    color: #38bdf8;
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.navbar li a {
+    display: block;
+    padding: 12px 20px;
+    color: #38bdf8;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.navbar li a:hover {
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.navbar li {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-width: auto;
+    transform: none;
+}
+
+.navbar li:hover {
+    transform: none;
+}
+
+.navbar ul {
+    position: relative;
+}
+
+.navbar ul::before {
+    content: "";
+    position: absolute;
+    left: var(--pill-left, 6px);
+    width: var(--pill-width, 0px);
+    top: 6px;
+    bottom: 6px;
+    border-radius: 50px;
+    background: rgba(56, 189, 248, 0.15);
+    border: none
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+    transition: left 0.25s ease, width 0.25s ease;
+    pointer-events: none;
+    opacity: 1;
+}
+
+
+
+
+.navbar li a {
+    position: relative;
+    z-index: 1;
+    border-color: transparent;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.hero-content h1 {
+    font-size: 56px;
+    margin-bottom: 15px;
+    letter-spacing: -1.5px;
+    text-align: left;
+}
+
+.hero-content h1 span {
+    color: #38bdf8;
+}
+
+.hero-content h2 {
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #38bdf8;
+}
+
+.hero-image {
+    flex: 1.3;
+    min-width: 0;
+    transform: translateX(50px);
+}
+
+.hero-image img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+}
+
+.hero-image img {
+    display: block;
+    width: 120%;
+    max-width: none;
+    height: auto;
+    margin: 0 auto;
+}
+
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Website!</h1>
-    <p>I'm learning web development.</p>
-    <button>Click Me</button>
+    <nav class="navbar">
+        <a href="#" class="logo">BINUK.</a>
 
-    <script src="script.js"></script>
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+        </ul>
+
+    </nav>
+
+    <section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Hi, I'm <span>Binuk!</span></h1>
+
+        <h2>Aspiring Web Developer</h2>
+
+        <p>
+            I enjoy learning new things and building beautiful,
+            functional websites. I'm currently improving my skills
+            in HTML, CSS, and JavaScript.
+        </p>
+
+        <a href="#about" class="hero-button">About Me</a>
+    </div>
+
+    <div class="hero-image">
+        <img src="developer.png" alt="Developer coding at a computer">
+    </div>
+</section>
+    <section class="about" id="about">
+        <h2>About Me</h2>
+        <p>I'm an aspiring web developer passionate about technology and creating useful digital experiences. I'm currently learning HTML, CSS, and JavaScript while developing my coding skills. My goal is to build modern websites, solve real-world problems, and grow into a skilled developer.</p>
+    </section>
+    <section class="skills" id="skills">
+        <h2>My Skills</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+    </section>
+    <section class="contact" id="contact"
+        <h2>Contact Me</h2>
+        <button class="hero-button" onclick="window.location.href='https://github.com/BinukDulmika'">Visit My GitHub</button>
+    </section>
+    
+    <script>
+const menu = document.querySelector(".navbar ul");
+const links = document.querySelectorAll(".navbar li a");
+
+function movePill(link) {
+    const menuRect = menu.getBoundingClientRect();
+    const linkRect = link.getBoundingClientRect();
+
+    menu.style.setProperty(
+        "--pill-left",
+        `${linkRect.left - menuRect.left}px`
+    );
+
+    menu.style.setProperty(
+        "--pill-width",
+        `${linkRect.width}px`
+    );
+}
+
+links.forEach(link => {
+    link.addEventListener("mouseenter", () => {
+        movePill(link);
+    });
+});
+
+menu.addEventListener("mouseleave", () => {
+    menu.style.setProperty("--pill-width", "0px");
+});
+</script>
+
 </body>
 </html>
