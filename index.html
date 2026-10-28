@@ -203,12 +203,12 @@
     list-style: none;
     margin: 0;
     padding: 12px 28px;
-    min-width: 480px;
+    min-width: 0;
     min-height: 60px;
     background: rgba(15, 23, 42, 0.75);
     border: 1px solid #263449;
     border-radius: 50px;
-    transform: translateX(40px);
+    transform: none;
 }
 
 .logo {
@@ -320,6 +320,85 @@
     max-width: none;
     height: auto;
     margin: 0 auto;
+}
+
+
+/* MOBILE RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+    .hero-image {
+        transform: none;
+        width: 100%;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-width: 400px;
+        margin: 20px auto 0;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px 0;
+    }
+
+    .navbar ul {
+        width: 100%;
+        min-width: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+        padding: 8px;
+        border-radius: 20px;
+    }
+
+    .navbar li a {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+        .about,
+    .skills,
+    .contact {
+        width: 100%;
+        max-width: 100%;
+        margin: 25px auto;
+        padding: 18px;
+    }
+
+    .skills ul {
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .skills li {
+        margin: 4px;
+        min-width: 0;
+    }
+
+    p {
+        overflow-wrap: anywhere;
+    }
+
 }
 
     </style>
