@@ -152,7 +152,7 @@
     max-width: 700px;
     width: 100%;
     margin: 40px auto;
-    padding: 12px 25px;
+    padding: 30px 25px;
     border-radius: 16px;
     border: 1px solid #263449;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -173,6 +173,38 @@
 .contact h2 {
     margin-top: 0;
     margin-bottom: 10px;
+}
+
+
+.contact-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: nowrap;
+    margin-top: 25px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.contact-link span {
+    color: #38bdf8;
+    font-size: 24px;
+}
+
+.contact-link:hover {
+    color: #38bdf8;
+    transform: translateY(-3px);
 }
 
 .about h2,
@@ -280,6 +312,26 @@
     position: relative;
     z-index: 1;
     border-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@keyframes navbarDrop {
+    from {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar {
+    animation: navbarDrop 2s ease-out;
 }
 
 .hero-content {
@@ -443,6 +495,13 @@
     }
 }
 
+@media (max-width: 600px) {
+    .contact-details {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}
+
 /* Scroll reveal animation */
 .about,
 .skills,
@@ -581,6 +640,8 @@ body::before {
     box-shadow: 0 8px 30px rgba(56, 189, 248, 0.15);
 }
 
+
+
     </style>
 </head>
 <body>
@@ -597,8 +658,8 @@ body::before {
             <li><a href="#home">HOME</a></li>
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#skills">SKILLS</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
             <li><a href="#contact">CONTACT</a></li>
-            <li><a href="#projects">PROJECTS</a></li>
         </ul>
 
     </nav>
@@ -614,8 +675,6 @@ body::before {
             functional websites. I'm currently improving my skills
             in HTML, CSS, and JavaScript.
         </p>
-
-        <a href="#about" class="hero-button">About Me</a>
     </div>
 
     <div class="hero-image">
@@ -631,14 +690,29 @@ body::before {
         <ul>
             <li>HTML</li>
             <li>CSS</li>
-            <li>JavaScript</li>
+            <li>JavvaScript</li>
         </ul>
     </section>
-    <section class="contact" id="contact"
-        <h2>Contact Me</h2>
-        <button class="hero-button" onclick="window.location.href='https://github.com/BinukDulmika'">Visit My GitHub</button>
+    <section class="contact" id="contact">
+    <h2>Contact Me</h2>
+
+    <p>Feel free to get in touch with me.</p>
+
+    <div class="contact-details">
+
+        <a href="mailto:binukkariyakarawana9@gmail.com" class="contact-link">
+            <span>✉</span>
+            binukkariyakarawana9@gmail.com
+        </a>
+
+        <a href="https://github.com/BinukDulmika" target="_blank"
+           rel="noopener noreferrer" class="contact-link">
+            <span>⌘</span>
+            Visit My GitHub
+        </a>
+
+    </div>
     </section>
-    
     <script>
 const menu = document.querySelector(".navbar ul");
 const links = document.querySelectorAll(".navbar li a");

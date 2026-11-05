@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Projects | Binuk</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* MAIN BACKGROUND */
+
+        html {
+            min-height: 100%;
+            background: linear-gradient(
+                135deg,
+                #070b14,
+                #0b1220,
+                #101b30
+            );
+            background-size: 200% 200%;
+            animation: ambientGlow 12s ease-in-out infinite alternate;
+        }
+
+        body {
+            background: transparent;
+            color: #e2e8f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            max-width: 900px;
+            min-height: 100vh;
+            margin: 0 auto;
+            position: relative;
+            isolation: isolate;
+        }
+
+        /* BACKGROUND GLOW */
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+
+            background: radial-gradient(
+                circle,
+                rgba(34, 211, 238, 0.18),
+                transparent 70%
+            );
+
+            filter: blur(30px);
+            z-index: -1;
+            pointer-events: none;
+            animation: glowMove 8s ease-in-out infinite alternate;
+        }
+
+        .glow-orb {
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.22;
+            animation: floatOrb 14s ease-in-out infinite alternate;
+        }
+
+        .orb-one {
+            top: 10%;
+            left: -150px;
+            background: #087cff;
+        }
+
+        .orb-two {
+            right: -150px;
+            bottom: 5%;
+            background: #22d3ee;
+            animation-delay: -7s;
+        }
+
+        /* AURORA BACKGROUND */
+
+        .aurora {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.12;
+
+            background: linear-gradient(
+                120deg,
+                transparent 20%,
+                #087cff 40%,
+                #22d3ee 50%,
+                transparent 70%
+            );
+
+            background-size: 200% 200%;
+            filter: blur(80px);
+            animation: auroraMove 18s ease-in-out infinite alternate;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            color: #38bdf8;
+            font-size: 26px;
+            font-weight: bold;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .navbar ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 12px;
+            list-style: none;
+            margin: 0;
+            padding: 12px 28px;
+            min-width: 0;
+            min-height: 60px;
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid #263449;
+            border-radius: 50px;
+            position: relative;
+        }
+
+        .navbar li {
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar li a {
+            display: block;
+            padding: 12px 20px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 14px;
+            border: 1px solid transparent;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar li a:hover {
+            color: #ffffff;
+        }
+
+        .navbar ul::before {
+            content: "";
+            position: absolute;
+            left: var(--pill-left, 6px);
+            width: var(--pill-width, 0px);
+            top: 6px;
+            bottom: 6px;
+            border-radius: 50px;
+            background: rgba(56, 189, 248, 0.15);
+            transition: left 0.25s ease, width 0.25s ease;
+            pointer-events: none;
+        }
+
+        /* PROJECT SECTION */
+
+        .projects-container {
+            width: calc(100vw - 40px);
+            max-width: 1100px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .project-card {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 25px;
+            background-color: #0d1525;
+            border: 1px solid #263449;
+            border-radius: 16px;
+            width: 100%;
+            margin: 40px auto 0;
+            text-align: left;
+
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+
+            animation: projectAppear 0.8s ease-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: #38bdf8;
+            box-shadow: 0 8px 30px rgba(56, 189, 248, 0.15);
+            background-color: #111e33;
+        }
+
+        .project-image {
+            flex: 1.3;
+            min-width: 0;
+        }
+
+        .project-image img {
+            display: block;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .project-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .project-info h2 {
+            color: #38bdf8;
+            font-size: 26px;
+            margin-top: 0;
+        }
+
+        .project-info p {
+            color: #a8b8d0;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        /* PROJECT BUTTONS */
+
+        .project-button {
+            display: block;
+            width: 100%;
+            padding: 13px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 12px;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .project-button:first-of-type {
+            background-color: #10b981;
+            color: #ffffff;
+        }
+
+        .project-button:last-of-type {
+            background-color: #a855f7;
+            color: #ffffff;
+        }
+
+        .project-button:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.15);
+            box-shadow: 0 6px 18px rgba(255, 255, 255, 0.12);
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes projectAppear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes ambientGlow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes glowMove {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(300px, 250px);
+            }
+        }
+
+        @keyframes floatOrb {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(100px, 80px);
+            }
+        }
+
+        @keyframes auroraMove {
+            from {
+                background-position: 0% 50%;
+            }
+
+            to {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* MOBILE RESPONSIVE DESIGN */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .navbar ul {
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 4px;
+                padding: 8px;
+                border-radius: 20px;
+            }
+
+            .navbar li a {
+                padding: 10px 8px;
+                font-size: 12px;
+            }
+
+            .project-card {
+                flex-direction: column;
+                gap: 20px;
+                padding: 18px;
+            }
+
+            .project-image,
+            .project-info {
+                width: 100%;
+            }
+
+            .project-image img {
+                height: 230px;
+            }
+
+            .project-info {
+                text-align: center;
+            }
+
+            .project-info p {
+                font-size: 16px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- BACKGROUND EFFECTS -->
+
+    <div class="glow-orb orb-one"></div>
+    <div class="glow-orb orb-two"></div>
+    <div class="aurora"></div>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">MY PROJECTS.</a>
+
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="index.html#about">ABOUT</a></li>
+            <li><a href="index.html#skills">SKILLS</a></li>
+            <li><a href="projects.html" class="active">PROJECTS</a></li>
+            <li><a href="index.html#contact">CONTACT</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- PROJECTS -->
+
+    <main class="projects-container">
+
+        <section class="project-card">
+
+            <div class="project-image">
+
+                <img
+                    src="sams-pizza.png"
+                    alt="Sam's Pizza Website"
+                >
+
+            </div>
+
+            <div class="project-info">
+
+                <h2>Sam's Pizza</h2>
+
+                <p>
+                    A modern pizza website built using HTML,
+                    CSS and JavaScript.
+                </p>
+
+                <a
+                    href="https://binukdulmika.github.io/sams-pizza/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-button"
+                >
+                    View Live Website
+                </a>
+
+                <a
+                    href="https://github.com/BinukDulmika/sams-pizza"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-button"
+                >
+                    View Source Code
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- NAVBAR ANIMATION -->
+
+    <script>
+
+        const menu = document.querySelector(".navbar ul");
+
+        const links = document.querySelectorAll(".navbar li a");
+
+        const activeLink = document.querySelector(
+            ".navbar li a.active"
+        );
+
+        function movePill(link) {
+
+            if (!link) return;
+
+            const menuRect = menu.getBoundingClientRect();
+            const linkRect = link.getBoundingClientRect();
+
+            menu.style.setProperty(
+                "--pill-left",
+                `${linkRect.left - menuRect.left}px`
+            );
+
+            menu.style.setProperty(
+                "--pill-width",
+                `${linkRect.width}px`
+            );
+        }
+
+        links.forEach(link => {
+
+            link.addEventListener("mouseenter", () => {
+                movePill(link);
+            });
+
+        });
+
+        menu.addEventListener("mouseleave", () => {
+            movePill(activeLink);
+        });
+
+        window.addEventListener("load", () => {
+            movePill(activeLink);
+        });
+
+        window.addEventListener("resize", () => {
+            movePill(activeLink);
+        });
+
+    </script>
+
+</body>
+
+</html>
